@@ -16,6 +16,11 @@
                             <span>財團法人新北市五泰教育基金會</span>
                         </a>
                     </div>
+                    <div class="hamburger">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
                     <div class="header-menu-block">
                         <ul class="header-menu-nav">
                             <li class="menu-item">
@@ -548,6 +553,25 @@
         </div>
     </body>
     <script>
+        // 取得 HTML 元素
+        const hamburger = document.querySelector(".hamburger");
+        const menuBlock = document.querySelector(".header-menu-block");
+        const menuLinks = document.querySelectorAll(".menu-item a"); // 取得所有連結
+
+        // 點擊漢堡按鈕時
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            menuBlock.classList.toggle("active");
+        });
+
+        // 點擊任何一個選單連結後，自動收起選單
+        menuLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                menuBlock.classList.remove("active");
+            });
+        });
+
         // 1. 選取所有的「標題」區域 (因為我們是點擊標題來觸發)
         const headers = document.querySelectorAll('.accordion-header');
 
